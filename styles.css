@@ -52,3 +52,18 @@ header{
     border-radius: 5px;
     cursor: pointer;
 }
+
+#advices{
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    align-items: center;
+}
+
+.green-box{
+    color: green;
+}
+
+.red-box{
+    color: red;
+}
