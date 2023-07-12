@@ -81,6 +81,12 @@ header{
         font-size: 60%;
     }
 
+    header button{
+        width: 90%;
+        height: 50%;
+        margin-top: 35%;
+    }
+    
     .hero{
         display: flex;
         flex-direction: column;
@@ -110,10 +116,21 @@ header{
 }
 
 @media(min-width: 768px){
+    header button{
+        width: 40%;
+        height: 40%;
+        margin: 40% 0 0 50%;
+    }
+
+    button img{
+        width: 200%;
+        height: 100%;
+    }
+
     .hero img{
-        width: 60%;
-        height: 60%;
-        margin: 20% 0 0 45%;
+        width: 40%;
+        height: 40%;
+        margin: 40% 0 0 60%;
     }
 
     #btn{
@@ -126,14 +143,24 @@ header{
 }
 
 @media(min-width: 1200px){
+    header button{
+        width: 30%;
+        height: 45%;
+        margin: 15% 0 0 50%;
+    }
+
+    .disclaimer{
+        font-size: 120%;
+    }
+
     .hero{
         width: 100%;
         height: 100%;
     }
     .hero img{
-        width: 30%;
-        height: 30%;
-        margin: 16% 0 0 65%;
+        width: auto;
+        height: auto;
+        margin: 5% 0 0 55%;
     }
 
     .type_password{
