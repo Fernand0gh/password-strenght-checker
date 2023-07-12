@@ -1,12 +1,20 @@
 html{
     font-family: 'Roboto Mono', monospace;
 }
+
 header{
     color: #eb0248;
     padding: 15px;
     text-align: left;
     font-style: italic;
     font-size: 100%;
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+}
+
+#change_theme img{
+    max-width: 70%;
+    max-height: 70;
 }
 
 .hero{
@@ -66,4 +74,77 @@ header{
 
 .red-box{
     color: red;
+}
+
+@media(max-width:600px){
+    header{
+        font-size: 60%;
+    }
+
+    .hero{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero img{
+        width: 30%;
+        height: 30%;
+        margin: 0 0 0 35%;
+    }
+
+    .disclaimer{
+        font-size: 100%;
+    }
+
+    .type_password{
+        width: 100%;
+    }
+
+    #btn{
+        margin: 4% 0 0 35%;   
+    }
+
+    #advices h2{
+        font-size: 100%;
+    }
+}
+
+@media(min-width: 768px){
+    .hero img{
+        width: 60%;
+        height: 60%;
+        margin: 20% 0 0 45%;
+    }
+
+    #btn{
+        margin: 3% 0 0 43%;
+    }
+
+    #advices h2{
+        font-size: 110%;
+    }
+}
+
+@media(min-width: 1200px){
+    .hero{
+        width: 100%;
+        height: 100%;
+    }
+    .hero img{
+        width: 30%;
+        height: 30%;
+        margin: 16% 0 0 65%;
+    }
+
+    .type_password{
+        margin-left: 0%;
+    }
+
+    #btn{
+        margin-left: 0%;
+    }
+
+    #advices h2{
+        font-size: 130%;
+    }
 }

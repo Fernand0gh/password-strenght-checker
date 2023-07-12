@@ -27,6 +27,11 @@ function isCommonPassword(password){
 }
 
 function checkPassword(password) {
+    if(password === ""){
+        writeAdvice("Not a valid password")
+        return
+    }
+
     let hasUpper = false;
     let hasLower = false;
     let hasNumber = false;
@@ -34,8 +39,10 @@ function checkPassword(password) {
     let isCommon = false;
 
     password.split("").forEach(char => { //Split the password into an array of chars
-        if (char === char.toUpperCase()) hasUpper = true;
-        if (char === char.toLowerCase()) hasLower = true;
+        if(char.toUpperCase() != char.toLowerCase()){ //Check if the char is a letter
+            if (char === char.toUpperCase()) hasUpper = true;
+            if (char === char.toLowerCase()) hasLower = true;
+        }
         if (!isNaN(char)) hasNumber = true;
         if (isSpecialChar(char)) hasSpecial = true;
     });
