@@ -45,13 +45,13 @@ header{
     align-items: center;
 }
 
-.type_password{
+.password_input{
     height: 80px;
-    width: 700px;
+    width: 600px;
     font-size: 20px;
 }
 
-#btn{
+.btn{
     background-color: #eb0248;
     color: #fff;
     border: none;
@@ -106,7 +106,7 @@ header{
         width: 100%;
     }
 
-    #btn{
+    .btn{
         margin: 4% 0 0 35%;   
     }
 
@@ -133,7 +133,7 @@ header{
         margin: 40% 0 0 60%;
     }
 
-    #btn{
+    .btn{
         margin: 3% 0 0 43%;
     }
 
@@ -167,7 +167,7 @@ header{
         margin-left: 0%;
     }
 
-    #btn{
+    .btn{
         margin-left: 0%;
     }
 

@@ -22,7 +22,7 @@
     </header>
 
     <div class="hero">
-        <img src="/resources/lock.svg" alt="lock">
+        <img src="resources/lock.svg" alt="lock">
 
         <p class="disclaimer">
             Check if your password is strong enough to be used on your internet accounts.
@@ -36,8 +36,15 @@
 
     <div class="form">
         <form action="" method="" id="get_password">
-            <input class="type_password" type="password" name="password"  id="password" placeholder="Test your password here">
-            <input id="btn" type="submit" value="Check">
+            <input class="password_input" type="password" name="password"  id="password" placeholder="Test your password here">
+            <input class="btn" id="check" type="submit" value="Check">
+        </form>
+    </div>
+
+    <div class="form">
+        <form action="" method="" id="generate_password">
+            <input readonly class="password_input" name="" id="generated-password" placeholder="Generate a new password"></input>
+            <input class="btn" id="generate" type="submit" value="Generate">
         </form>
     </div>
 

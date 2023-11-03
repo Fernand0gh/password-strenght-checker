@@ -1,14 +1,20 @@
 document.getElementById("get_password").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevents the page from reloading when submitting the form
-    main();
+    password_checker();
 });
 
+document.getElementById("generate_password").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    generatePassword();
+});
+
+//Password checker
 function isSpecialChar(char) { 
-    let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/; //Define some common special characters
-    return format.test(char); //Check if the character is a special character
+    let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/; 
+    return format.test(char);
 }
 
-function isCommonPassword(password){
+function isCommonPassword(password){ //List top 100 common passwords
     let commonPasswords = ["12345","123456", "123456789", "test1", "password"
     ,"12345678", "zinch", "g_czechout", "asdf", "qwerty", "1234567890", "1234567",
     "Aa123456", "iloveyou", "1234", "abc123", "111111", "123123", "dubsmash", "test",
@@ -21,7 +27,7 @@ function isCommonPassword(password){
     "dragon", "jennifer", "amanda", "justin", "cookie", "basketball", "shopping", "pepper",
     "joshua", "hunter", "ginger", "matthew", "abcd1234", "taylor", "samantha", "whatever",
     "andrew", "1qaz2wsx3edc", "thomas", "jasmine", "animoto", "madison", "0987654321",
-    "54321", "flower", "Password", "maria", "babygirl", "lovely", "sophie", "Cheeg123"] //List top 100 common passwords
+    "54321", "flower", "Password", "maria", "babygirl", "lovely", "sophie", "Cheeg123"] 
 
     return commonPasswords.includes(password)
 }
@@ -39,7 +45,7 @@ function checkPassword(password) {
     let isCommon = false;
 
     password.split("").forEach(char => { //Split the password into an array of chars
-        if(char.toUpperCase() != char.toLowerCase()){ //Check if the char is a letter
+        if(char.toUpperCase() != char.toLowerCase()){ 
             if (char === char.toUpperCase()) hasUpper = true;
             if (char === char.toLowerCase()) hasLower = true;
         }
@@ -72,27 +78,46 @@ function checkPassword(password) {
 }
 
 function writeAdvice(message) {
-    let h2 = document.createElement("h2"); //Create a new h2
+    //Create a H2 element and add it to the container
+    let h2 = document.createElement("h2"); 
     if(message === "Your password is strong enough :D"){
         h2.className = "green-box";
     }else{
         h2.className = "red-box";
     }
-    h2.innerHTML = message; //Set the text of the h2
+    h2.innerHTML = message; 
     
     let container = document.getElementById("advices");
-    container.appendChild(h2); //Add the h2 to the container
+    container.appendChild(h2);
 }
 
 function deletePreviousAdvices() {
     let container = document.getElementById("advices"); 
-    while (container.firstChild) { //While the container has a first child, delete it
+    while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
 }
 
-function main() {
-    deletePreviousAdvices(); //Clear the screen
-    let password = document.getElementById("password").value; //Get the password from the input
-    checkPassword(password); //Check the password and write the new advices
+function password_checker() {
+    deletePreviousAdvices(); 
+    let password = document.getElementById("password").value; 
+    checkPassword(password); 
+}
+
+//Password generator
+function generatePassword() {
+    console.log("Generating password...");
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+    let password = '';
+  
+    let length = Math.floor(Math.random() * 9) + 8; //Generate a random length between 8 and 16
+
+    for (let i = 0; i < length; i++) {
+      let randomChar = chars.charAt(Math.floor(Math.random() * chars.length));
+      password += randomChar;
+    }
+  
+    const container = document.getElementById("generated-password");
+    container.value = password;
+    console.log(password);
 }
